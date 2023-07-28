@@ -18,7 +18,10 @@ import com.insurance.excelandpdfreport.ExcelReportGenerator;
 import com.insurance.excelandpdfreport.PdfReportGenerator;
 import com.insurance.service.ReportService;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @RestController
+@EnableSwagger2
 public class ReportRestController {
 
 	@Autowired

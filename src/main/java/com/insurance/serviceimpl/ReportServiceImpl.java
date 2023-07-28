@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import com.insurance.service.ReportService;
 @Service
 public class ReportServiceImpl implements ReportService {
 	
+	@Autowired
 	private EligibilityDtlsRepo elgDtlsrRepo;
 
 	@Override
@@ -73,6 +75,9 @@ public class ReportServiceImpl implements ReportService {
 	}
 	
 	private boolean isSearchRequestIsEmpty(SearchRequest searchRequest) {
+		if(searchRequest==null) {
+			return true;
+		}
 		
 		if(searchRequest.getPlanName()!=null && searchRequest.getPlanName().equals("")) {
 			return false;
